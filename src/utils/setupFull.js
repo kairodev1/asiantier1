@@ -211,8 +211,93 @@ async function runSetupFull(interaction) {
     await interaction.editReply({ content: summary.join('\n') });
 }
 
-module.exports = { runSetupFull, OWNER_ID };
-```
+async function runUpdateroleid(interaction) {
+    const guild = interaction.guild;
+    const guildId = guild.id;
+    const updated = [];
+    const missing = [];
+    const failed = [];
 
-Now update /setupfull command to use button and helper. Need interactionCreate button handling for setupfull_confirm/cancel. Let's update setupfull.js command.<|end|><|start|>Assistant to=write<|channel|>analysis <|constrain|>xml<|message|><rfl:parameter name="path">
-C:\Users\ME\Downloads\asiantiers-main\asiantiers-main\src\commands\owner\setupfull.js
+    await interaction.editReply({ content: 'Syncing role IDs...' });
+
+    const roleSpecs = [];
+    const general = [
+        { name: 'Admin', key: 'admin', category: 'General' },
+        { name: 'Moderator', key: 'mod', category: 'General' },
+        { name: 'SSer', key: 'sser', category: 'General' },
+        { name: 'Registered', key: 'registered', category: 'General' },
+        { name: 'Priority (VIP)', key: 'priority', category: 'General' },
+        { name: 'Verified Tester', key: 'verified_tester', category: 'General' },
+        { name: 'Manager', key: 'manager', category: 'General' },
+        { name: 'Overseas', key: 'overseas', category: 'General' },
+        { name: 'Sr.Mod', key: 'sr_mod', category: 'General' },
+        { name: 'Helper', key: 'helper', category: 'General' },
+        { name: 'Trial Staff', key: 'trial_staff', category: 'General' },
+        { name: 'Restricted', key: 'restricted', category: 'General' },
+        { name: 'Waitlist Role', key: 'waitlist', category: 'General' },
+        { name: 'High Result Manager', key: 'high_result_manager', category: 'General' },
+        { name: 'Retire Result Manager', key: 'retire_result_manager', category: 'General' },
+        { name: 'Staff', key: 'staff', category: 'General' }
+    ];
+    roleSpecs.push(...general);
+
+    for (const gm of gamemodes) {
+        const display = config.gamemodeNames?.[gm] || gm;
+        for (const tier of tierSystem.ACTIVE_TIERS) {
+            roleSpecs.push({ name: `${display} ${tier}`, key: `tier_${gm}_${tier}`, category: 'Tier', gamemode: gm, tier });
+        }
+    }
+    for (const gm of gamemodes) {
+        const display = config.gamemodeNames?.[gm] || gm;
+        roleSpecs.push({ name: `${display} Tester`, key: `tester_gamemode_${gm}`, category: 'Tester', gamemode: gm });
+    }
+    for (const gm of gamemodes) {
+        const display = config.gamemodeNames?.[gm] || gm;
+        roleSpecs.push({ name: `${display} Waitlist`, key: `waitlist_${gm}`, category: 'Waitlist', gamemode: gm });
+    }
+
+    for (const spec of roleSpecs) {
+        const role = guild.roles.cache.find(r => r.name.toLowerCase() === spec.name.toLowerCase());
+        if (!role) { missing.push(spec.name); continue; }
+        try {
+            await roleConfig.upsertRoleConfig(spec.key, role.name, spec.category, spec.gamemode || null, spec.tier || null, '#' + (role.color ? role.color.toString(16).padStart(6, '0') : '000000'), role.id, guildId);
+            updated.push(spec.key);
+        } catch (e) {
+            failed.push(`${spec.key}: ${e.message}`);
+        }
+    }
+
+    // aliases
+    const priorityRole = guild.roles.cache.find(r => r.name.toLowerCase() === 'priority (vip)');
+    if (priorityRole) {
+        for (const alias of ['vip', 'booster']) {
+            try { await roleConfig.upsertRoleConfig(alias, priorityRole.name, 'General', null, null, '#' + priorityRole.color.toString(16).padStart(6, '0'), priorityRole.id, guildId); updated.push(alias); }
+            catch (e) { failed.push(`${alias}: ${e.message}`); }
+        }
+    }
+    const verifiedTesterRole = guild.roles.cache.find(r => r.name.toLowerCase() === 'verified tester');
+    if (verifiedTesterRole) {
+        try { await roleConfig.upsertRoleConfig('tester', verifiedTesterRole.name, 'General', null, null, '#' + verifiedTesterRole.color.toString(16).padStart(6, '0'), verifiedTesterRole.id, guildId); updated.push('tester'); }
+        catch (e) { failed.push(`tester: ${e.message}`); }
+    }
+    const srModRole = guild.roles.cache.find(r => r.name.toLowerCase() === 'sr.mod');
+    if (srModRole) {
+        try { await roleConfig.upsertRoleConfig('srmod', srModRole.name, 'General', null, null, '#' + srModRole.color.toString(16).padStart(6, '0'), srModRole.id, guildId); updated.push('srmod'); }
+        catch (e) { failed.push(`srmod: ${e.message}`); }
+    }
+
+    await roleConfig.clearRoleConfigCache(guildId);
+
+    const summary = [
+        '✅ /updateroleid complete.',
+        `Updated: ${updated.length}`,
+        `Missing: ${missing.length}`,
+        `Failed: ${failed.length}`
+    ];
+    if (missing.length > 0) summary.push('', 'Missing roles:', missing.slice(0, 20).join('\n'));
+    if (failed.length > 0) summary.push('', 'Failed:', failed.slice(0, 20).join('\n'));
+
+    await interaction.editReply({ content: summary.join('\n') });
+}
+
+module.exports = { runSetupFull, runUpdateroleid, OWNER_ID };

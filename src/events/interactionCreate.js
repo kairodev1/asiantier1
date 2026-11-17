@@ -18,6 +18,8 @@ const queueRenderer = require('../queue/queueRenderer');
 const perms = require('../utils/permissions');
 const fetch = require('node-fetch');
 const roleConfig = require('../utils/roleConfig');
+const setupFull = require('../utils/setupFull');
+const emojiidCommand = require('../commands/owner/emojiid');
 module.exports = {
     name: 'interactionCreate',
 
@@ -276,6 +278,41 @@ module.exports = {
                         content: summary.join('\n'),
                         components: []
                     });
+                }
+
+                // =================================================
+                // SETUPFULL CONFIRMATION
+                // =================================================
+                if (customId === 'setupfull_confirm' || customId === 'setupfull_cancel') {
+                    if (interaction.user.id !== '1105165947590938866') {
+                        return interaction.reply({ content: '❌ You do not have permission to use this.', flags: MessageFlags.Ephemeral });
+                    }
+                    if (customId === 'setupfull_cancel') {
+                        return interaction.update({ content: 'Cancelled.', components: [] });
+                    }
+                    await interaction.deferUpdate();
+                    try {
+                        await setupFull.runSetupFull(interaction);
+                    } catch (error) {
+                        console.error('SETUPFULL ERROR:', error);
+                        await interaction.editReply({ content: '<:crosss:1570104768628531290> Setup failed. Check console.', components: [] }).catch(() => {});
+                    }
+                    return;
+                }
+
+                // =================================================
+                // EMOJIID PAGINATION
+                // =================================================
+                if (customId.startsWith('emojiid_prev_') || customId.startsWith('emojiid_next_')) {
+                    if (interaction.user.id !== '1105165947590938866' && !interaction.memberPermissions?.has(PermissionFlagsBits.Administrator)) {
+                        return interaction.reply({ content: '❌ You do not have permission.', flags: MessageFlags.Ephemeral });
+                    }
+                    const parts = customId.split('_');
+                    const direction = parts[1];
+                    const currentPage = parseInt(parts[2], 10) || 0;
+                    const newPage = direction === 'prev' ? currentPage - 1 : currentPage + 1;
+                    const payload = emojiidCommand.buildPage(interaction.guild, newPage);
+                    return interaction.update(payload);
                 }
 
                 // =================================================

@@ -38,7 +38,7 @@ module.exports = {
             console.error("Tester Stats Error:", error);
 
             return interaction.editReply({
-                content: "<:crosss:1570104768628531290> Failed to load tester statistics."
+                content: "<:crosss:1567480131713241108> Failed to load tester statistics."
             });
         }
 
@@ -190,7 +190,7 @@ module.exports = {
                     inline: true
                 },
                 {
-                    name: "🏆 Different Tiers",
+                    name: "<:updates:1567483653766778900> Different Tiers",
                     value: `**${Object.keys(tierStats).length}**`,
                     inline: true
                 },
@@ -200,12 +200,12 @@ module.exports = {
                     inline: false
                 },
                 {
-                    name: "🏆 Tiers Given",
+                    name: "<:updates:1567483653766778900> Tiers Given",
                     value: tierText || "No data.",
                     inline: false
                 },
                 {
-                    name: "<:updates:1570104881262366861> Detailed Breakdown",
+                    name: "<:updates:1567483653766778900> Detailed Breakdown",
                     value:
                         detailedText.length > 1024
                             ? detailedText.substring(0, 1020) + "..."

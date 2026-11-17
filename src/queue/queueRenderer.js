@@ -200,7 +200,7 @@ module.exports = {
                 emojis.ui?.queueopen || '🟢';
 
             const closeEmoji =
-                emojis.ui?.queueclose || '<:close:1570105019326275604>';
+                emojis.ui?.queueclose || '<:close:1567495039242735716>';
 
             // ==========================================
             // 5. BUILD QUEUE EMBED AND BUTTONS
@@ -221,7 +221,7 @@ module.exports = {
                     )
                     .addFields(
                         {
-                            name: '<:updates:1570104881262366861> Reason',
+                            name: '<:updates:1567483653766778900> Reason',
                             value: 'Queue closed by command',
                             inline: false
                         },

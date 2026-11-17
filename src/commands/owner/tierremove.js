@@ -35,7 +35,9 @@ module.exports = {
                     { name: "Diamond SMP", value: "diasmp" },
                     { name: "Manhunt", value: "manhunt" },
                     { name: "ShieldLess UHC", value: "shieldlessuhc" },
-                    { name: "Cart", value: "cart" }
+                    { name: "Cart", value: "cart" },
+                    { name: "Nethpot", value: "Nethpot" },
+                    { name: "Crystal", value: "Crystal" }
                 )
         ),
 
@@ -49,7 +51,7 @@ module.exports = {
         });
         if (!allowed) {
             return interaction.reply({
-                content: "<:crosss:1570104768628531290> You do not have permission to use this command.",
+                content: "<:crosss:1567480131713241108> You do not have permission to use this command.",
                 flags: 64
             });
         }
@@ -68,7 +70,7 @@ module.exports = {
 
         if (playerError || !player) {
             return interaction.editReply({
-                content: "<:crosss:1570104768628531290> Player profile not found."
+                content: "<:crosss:1567480131713241108> Player profile not found."
             });
         }
 
@@ -129,9 +131,9 @@ module.exports = {
         try {
 
             if (!process.env.WEBSITE_API_URL) {
-                console.error("<:crosss:1570104768628531290> WEBSITE_API_URL is missing from .env");
+                console.error("<:crosss:1567480131713241108> WEBSITE_API_URL is missing from .env");
             } else if (!process.env.WEBSITE_BOT_SECRET) {
-                console.error("<:crosss:1570104768628531290> WEBSITE_BOT_SECRET is missing from .env");
+                console.error("<:crosss:1567480131713241108> WEBSITE_BOT_SECRET is missing from .env");
             } else {
 
                 const response = await fetch(
@@ -162,20 +164,20 @@ module.exports = {
 
                 if (!response.ok) {
                     console.error(
-                        "<:crosss:1570104768628531290> Website Sync Error:",
+                        "<:crosss:1567480131713241108> Website Sync Error:",
                         response.status,
                         await response.text()
                     );
                 } else {
                     console.log(
-                        `<:tick:1570104808055111742> Website synced: ${player.ign} → ${gamemode} → Unranked`
+                        `<:tick:1567480091267825714> Website synced: ${player.ign} → ${gamemode} → Unranked`
                     );
                 }
             }
 
         } catch (error) {
             console.error(
-                "<:crosss:1570104768628531290> Website Tier Remove Sync Failed:",
+                "<:crosss:1567480131713241108> Website Tier Remove Sync Failed:",
                 error
             );
         }
@@ -183,7 +185,7 @@ module.exports = {
         // Final response
         await interaction.editReply({
             content:
-                `<:tick:1570104808055111742> **Tier Removed Successfully**\n\n` +
+                `<:tick:1567480091267825714> **Tier Removed Successfully**\n\n` +
                 `Player: **${player.ign}**\n` +
                 `Gamemode: **${gamemode}**\n` +
                 `Status: **Unranked**\n` +

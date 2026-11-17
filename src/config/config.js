@@ -11,25 +11,26 @@ module.exports = {
     // Non-role configuration only.
     gamemodes: [
         'Sword', 'Mace', 'Axe', 'DiaPot', 'SMP', 'UHC',
-        'spearmace', 'diasmp', 'manhunt', 'shieldlessuhc', 'cart'
+        'spearmace', 'diasmp', 'manhunt', 'shieldlessuhc', 'cart',
+        'Nethpot', 'Crystal'
     ],
 
     channels: {
-        results: '1570452165234003988',
-        ticketCategory: '1570452102499672158',
-        transcriptChannel: '1570452203934716036',
+        results: '1567481403547852871',
+        ticketCategory: '1567481339475791883',
+        transcriptChannel: '1567481439816253522',
         queues: {
-            '1570452178445795338': 'Sword',
-            '1570452181168169081': 'Mace',
-            '1570452184011903047': 'Axe',
-            '1570452182485176364': 'SMP',
-            '1570452185492357211': 'UHC',
-            '1570452179720863876': 'DiaPot',
-            '1570452212293959772': 'spearmace',
-            '1570452215947198586': 'diasmp',
-            '1570452210419105804': 'manhunt',
-            '1570452208900775936': 'shieldlessuhc',
-            '1570452217654157332': 'cart'
+            '1567481416453718046': 'Sword',
+            '1567481418777362593': 'Mace',
+            '1567481421441015842': 'Axe',
+            '1567481420442771526': 'SMP',
+            '1567481422854226021': 'UHC',
+            '1567481417661677588': 'DiaPot',
+            '1572267251329933392': 'spearmace',
+            '1569964539070517320': 'diasmp',
+            '1572267338429104249': 'manhunt',
+            '1572267481882566767': 'shieldlessuhc',
+            '1570076107238150247': 'cart'
         },
     },
 
@@ -46,7 +47,9 @@ module.exports = {
             diasmp: '1570451940905582614',
             manhunt: '1570451936606425299',
             shieldlessuhc: '1570451937692745820',
-            cart: '1570451939240448041'
+            cart: '1570451939240448041',
+            Nethpot: '1567481413878415502',
+            Crystal: '1567481414952165412'
         }
     },
 
@@ -57,6 +60,8 @@ module.exports = {
         diasmp: 'Diamond SMP',
         manhunt: 'Manhunt',
         shieldlessuhc: 'ShieldLess UHC',
-        cart: 'Cart'
+        cart: 'Cart',
+        Nethpot: 'Nethpot',
+        Crystal: 'Crystal'
     }
 };

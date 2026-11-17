@@ -24,7 +24,7 @@ module.exports = {
 if (!interaction.memberPermissions?.has('Administrator')) {
     return interaction.reply({
         content:
-            '<:crosss:1570104768628531290> You need Administrator permission to use this command.',
+            '<:crosss:1567480131713241108> You need Administrator permission to use this command.',
         ephemeral: true
     });
 }
@@ -40,7 +40,7 @@ if (!interaction.memberPermissions?.has('Administrator')) {
 
         // EXACT CUSTOM TROPHY EMOJI
         const trophyEmoji =
-            '<:T1:1544576709733519380>';
+            '<:trophy~1:1567483693130584136>';
 
         // ==========================================
         // EMBED
@@ -94,7 +94,9 @@ if (!interaction.memberPermissions?.has('Administrator')) {
             'diasmp',
             'manhunt',
             'shieldlessuhc',
-            'cart'
+            'cart',
+            'Nethpot',
+            'Crystal'
         ];
 
         const rows = [];
@@ -155,7 +157,7 @@ if (!interaction.memberPermissions?.has('Administrator')) {
 
         return interaction.reply({
             content:
-                '<:tick:1570104808055111742> High Tests panel sent.',
+                '<:tick:1567480091267825714> High Tests panel sent.',
             ephemeral: true
         });
     }

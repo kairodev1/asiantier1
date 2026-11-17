@@ -73,7 +73,7 @@ for (const folder of commandFolders) {
 
         if ('data' in command && 'execute' in command) {
             client.commands.set(command.data.name, command);
-            console.log(`<:tick:1570104808055111742> Loaded Command: ${command.data.name}`);
+            console.log(`<:tick:1567480091267825714> Loaded Command: ${command.data.name}`);
         }
     }
 }
@@ -98,7 +98,7 @@ for (const file of eventFiles) {
         client.on(event.name, (...args) => event.execute(...args));
     }
 
-    console.log(`<:tick:1570104808055111742> Loaded Event: ${event.name}`);
+    console.log(`<:tick:1567480091267825714> Loaded Event: ${event.name}`);
 }
 
 // ==========================================
@@ -124,6 +124,6 @@ client.once('ready', async () => {
         console.log('🤖 AsianTiers Bot Logged In');
     })
     .catch(error => {
-        console.error('<:crosss:1570104768628531290> Discord Login Failed:', error);
+        console.error('<:crosss:1567480131713241108> Discord Login Failed:', error);
     });
 })();

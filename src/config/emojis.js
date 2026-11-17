@@ -10,13 +10,15 @@ module.exports = {
         diasmp: '<:Diamond_SMP:1544353700821213314>',
         manhunt: '<:Manhunt:1544354284647219232>',
         shieldlessuhc: '<:Shieldless_UHC:1544354597580185681>',
-        cart: ' <:Cart:1544353621653852220>'
+        cart: ' <:cart:1569963469401493616>',
+        Nethpot: '<:nethpot:1567479520632643655>',
+        Crystal: '<:Crystal:1567479595165425806>'
     },
 
     tester: '<:tester:1544354810852020304>',
 
     ui: {
         open: '<:open:1570104721392541696>',
-        closed: '<:close:1570105019326275604>'
+        closed: '<:close:1567495039242735716>'
     }
 };  

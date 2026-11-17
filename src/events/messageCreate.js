@@ -14,7 +14,9 @@ const GAMEMODES = [
     'diasmp',
     'manhunt',
     'shieldlessuhc',
-    'cart'
+    'cart',
+    'Nethpot',
+    'Crystal'
 ];
 
 module.exports = {

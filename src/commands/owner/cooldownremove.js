@@ -32,7 +32,9 @@ module.exports = {
                     { name: 'Diamond SMP', value: 'diasmp' },
                     { name: 'Manhunt', value: 'manhunt' },
                     { name: 'ShieldLess UHC', value: 'shieldlessuhc' },
-                    { name: 'Cart', value: 'cart' }
+                    { name: 'Cart', value: 'cart' },
+                    { name: 'Nethpot', value: 'Nethpot' },
+                    { name: 'Crystal', value: 'Crystal' }
                 )
         ),
 
@@ -41,7 +43,7 @@ module.exports = {
         if (!await perms.isTester(interaction.member)) {
 
             return interaction.reply({
-                content: '<:crosss:1570104768628531290> Only testers can use this command.',
+                content: '<:crosss:1567480131713241108> Only testers can use this command.',
                 flags: 64
             });
         }
@@ -75,7 +77,7 @@ module.exports = {
 
                 return interaction.editReply({
                     content:
-                        '<:crosss:1570104768628531290> Failed to check the player cooldown.'
+                        '<:crosss:1567480131713241108> Failed to check the player cooldown.'
                 });
             }
 
@@ -103,13 +105,13 @@ module.exports = {
 
                 return interaction.editReply({
                     content:
-                        '<:crosss:1570104768628531290> Failed to remove the cooldown.'
+                        '<:crosss:1567480131713241108> Failed to remove the cooldown.'
                 });
             }
 
             return interaction.editReply({
                 content:
-                    `<:tick:1570104808055111742> Removed the **${gamemode}** testing cooldown from <@${user.id}>.`
+                    `<:tick:1567480091267825714> Removed the **${gamemode}** testing cooldown from <@${user.id}>.`
             });
 
         } catch (error) {
@@ -121,7 +123,7 @@ module.exports = {
 
             return interaction.editReply({
                 content:
-                    '<:crosss:1570104768628531290> Something went wrong while removing the cooldown.'
+                    '<:crosss:1567480131713241108> Something went wrong while removing the cooldown.'
             }).catch(() => {});
         }
     }

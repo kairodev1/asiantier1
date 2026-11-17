@@ -39,7 +39,7 @@ if (!interaction.memberPermissions?.has('Administrator')) {
             '<:diapot:1534871592730099743>';
 
         // EXACT CUSTOM <:trophy:1572294715343249538> EMOJI
-        const <:trophy:1572294715343249538>Emoji =
+        const trophyEmoji = '<:trophy:1572294715343249538>';
             '<:<:trophy:1572294715343249538>~1:1567483693130584136>';
 
         // ==========================================

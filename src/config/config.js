@@ -1,5 +1,7 @@
+
 module.exports = {
     ownerId: '1434463040622952510',
+
     colors: {
         primary: 0x8B0000,
         secondary: 0x000000,
@@ -7,18 +9,29 @@ module.exports = {
         error: 0xE74C3C
     },
 
-    // Role IDs are now stored in Supabase `kairo_role_configs`.
+    // Role IDs are stored in Supabase `kairo_role_configs`.
     // Non-role configuration only.
     gamemodes: [
-        'Sword', 'Mace', 'Axe', 'DiaPot', 'SMP', 'UHC',
-        'spearmace', 'diasmp', 'manhunt', 'shieldlessuhc', 'cart',
-        'Nethpot', 'Crystal'
+        'Sword',
+        'Mace',
+        'Axe',
+        'DiaPot',
+        'SMP',
+        'UHC',
+        'spearmace',
+        'diasmp',
+        'manhunt',
+        'shieldlessuhc',
+        'cart',
+        'Nethpot',
+        'Crystal'
     ],
 
     channels: {
         results: '1567481403547852871',
         ticketCategory: '1567481339475791883',
         transcriptChannel: '1567481439816253522',
+
         queues: {
             '1567481416453718046': 'Sword',
             '1567481418777362593': 'Mace',
@@ -30,8 +43,12 @@ module.exports = {
             '1569964539070517320': 'diasmp',
             '1572267338429104249': 'manhunt',
             '1572267481882566767': 'shieldlessuhc',
-            '1570076107238150247': 'cart'
-        },
+            '1570076107238150247': 'cart',
+
+            // New gamemodes
+            '1567481413878415502': 'Nethpot',
+            '1567481414952165412': 'Crystal'
+        }
     },
 
     // Legacy waitlist role IDs (fallback until saved in Supabase)
@@ -54,7 +71,6 @@ module.exports = {
     },
 
     // Gamemode display names
-
     gamemodeNames: {
         spearmace: 'SpearMace',
         diasmp: 'Diamond SMP',

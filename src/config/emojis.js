@@ -1,24 +1,22 @@
 module.exports = {
     gamemodes: {
-        UHC: '<:UHC:1544348815849558137>',
-        SMP: '<:SMP:1544348730331758943> ',
-        Sword: '<:Sword:1544348917385404456>',
-        Mace: '<:Mace:1544349978749702185>',
-        DiaPot: ' <:Pot:1544352635493027921>',
-        Axe: ' <:Axe:1544348970040434789>',
-        spearmace: '<:netherite_spear:1570105064293408818>',
-        diasmp: '<:Diamond_SMP:1544353700821213314>',
-        manhunt: '<:Manhunt:1544354284647219232>',
-        shieldlessuhc: '<:Shieldless_UHC:1544354597580185681>',
-        cart: ' <:cart:1569963469401493616>',
-        Nethpot: '<:nethpot:1567479520632643655>',
-        Crystal: '<:Crystal:1567479595165425806>'
+        UHC: '<:UHC:1567479447609671750>',
+        SMP: '<:SMP:1567479400780537957> ',
+        Sword: '<:sword:1567479267019853907>',
+        Mace: '<:mace:1567479351862370395>',
+        DiaPot: ' <:diapot:1567493613951385762>',
+        Axe: '  <:1axe:1567479311693520926> ',
+        spearmace: ' <:spearmace:1569963562967760936>',
+        diasmp: '<:diasmp:1569963433124823101>',
+        manhunt: '<:manhunt:1569963535746859068>',
+        shieldlessuhc: '<:shieldless:1569963509540978699>',
+        cart: '<:cart:1569963469401493616> '
     },
 
-    tester: '<:tester:1544354810852020304>',
+    tester: '<:verified_tester:1567495110915133460> ',
 
     ui: {
-        open: '<:open:1570104721392541696>',
+        open: '<:open:1567495069794177100> ',
         closed: '<:close:1567495039242735716>'
     }
 };  

@@ -41,7 +41,7 @@ module.exports = {
         if (!gamemode) {
             return interaction.reply({
                 content:
-                    '<:crosss:1572295157200457819>s:1567480131713241108> This channel is not a AsianTiers queue channel.',
+                    '<:crosss:1572295157200457819> This channel is not a AsianTiers queue channel.',
                 flags: MessageFlags.Ephemeral
             });
         }
@@ -74,7 +74,7 @@ module.exports = {
 
                 await interaction.reply({
                     content:
-                        '<:crosss:1572295157200457819>s:1567480131713241108> Failed to refresh the queue panel.',
+                        '<:crosss:1572295157200457819> Failed to refresh the queue panel.',
                     flags: MessageFlags.Ephemeral
                 });
 

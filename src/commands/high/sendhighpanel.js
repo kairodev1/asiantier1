@@ -17,14 +17,14 @@ module.exports = {
     async execute(interaction) {
         if (!interaction.memberPermissions?.has('Administrator')) {
             return interaction.reply({
-                content: '<:crosss:1570104768628531290> You need Administrator permission to use this command.',
+                content: '<:crosss:1572295157200457819> You need Administrator permission to use this command.',
                 ephemeral: true
             });
         }
 
         const diaPotEmoji =
             emojis.gamemodes?.DiaPot ||
-            '<:diapot:1534871592730099743>';
+            '<:diapot:1572294807781380228>';
 
         const trophyEmoji = '<:trophy:1572294715343249538>';
 
@@ -89,7 +89,7 @@ module.exports = {
         });
 
         return interaction.reply({
-            content: '<:tick:1567480091267825714> High Tests panel sent.',
+            content: '<:tick:1572295109154701352> High Tests panel sent.',
             ephemeral: true
         });
     }

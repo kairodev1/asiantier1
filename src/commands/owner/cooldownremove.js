@@ -43,7 +43,7 @@ module.exports = {
         if (!await perms.isTester(interaction.member)) {
 
             return interaction.reply({
-                content: '<:crosss:1572295157200457819>s:1567480131713241108> Only testers can use this command.',
+                content: '<:crosss:1572295157200457819> Only testers can use this command.',
                 flags: 64
             });
         }
@@ -77,7 +77,7 @@ module.exports = {
 
                 return interaction.editReply({
                     content:
-                        '<:crosss:1572295157200457819>s:1567480131713241108> Failed to check the player cooldown.'
+                        '<:crosss:1572295157200457819> Failed to check the player cooldown.'
                 });
             }
 
@@ -105,13 +105,13 @@ module.exports = {
 
                 return interaction.editReply({
                     content:
-                        '<:crosss:1572295157200457819>s:1567480131713241108> Failed to remove the cooldown.'
+                        '<:crosss:1572295157200457819> Failed to remove the cooldown.'
                 });
             }
 
             return interaction.editReply({
                 content:
-                    `<:tick:1572295109154701352>:1567480091267825714> Removed the **${gamemode}** testing cooldown from <@${user.id}>.`
+                    `<:tick:1572295109154701352> Removed the **${gamemode}** testing cooldown from <@${user.id}>.`
             });
 
         } catch (error) {
@@ -123,7 +123,7 @@ module.exports = {
 
             return interaction.editReply({
                 content:
-                    '<:crosss:1572295157200457819>s:1567480131713241108> Something went wrong while removing the cooldown.'
+                    '<:crosss:1572295157200457819> Something went wrong while removing the cooldown.'
             }).catch(() => {});
         }
     }

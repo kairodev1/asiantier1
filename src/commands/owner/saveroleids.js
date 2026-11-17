@@ -26,7 +26,7 @@ module.exports = {
         // Admin only
         if (interaction.user.id !== '1105165947590938866') {
             return interaction.reply({
-                content: '<:crosss:1572295157200457819>s:1567480131713241108> Only the bot owner can use this command.',
+                content: '<:crosss:1572295157200457819> Only the bot owner can use this command.',
                 flags: MessageFlags.Ephemeral
             });
         }

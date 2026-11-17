@@ -221,7 +221,7 @@ module.exports = {
                     )
                     .addFields(
                         {
-                            name: '<:<:staff:1569676993983815830>:1567483653766778900> Reason',
+                            name: ' Reason',
                             value: 'Queue closed by command',
                             inline: false
                         },
@@ -295,7 +295,7 @@ module.exports = {
                     .setColor(0x5865F2)
                     .setDescription(
                         `${testerEmoji} **Tester(s) Available!**\n\n` +
-                        '🕐 The queue <:staff:1569676993983815830> automatically.\n' +
+                        '🕐 The queue  automatically.\n' +
                         'Use **Join Queue** / **Leave Queue** to manage your position.'
                     )
                     .addFields(

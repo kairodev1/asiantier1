@@ -27,7 +27,7 @@ module.exports = {
                 console.error("Tester Leaderboard Error:", error);
 
                 return interaction.editReply({
-                    content: "<:crosss:1572295157200457819>s:1567480131713241108> Failed to load the tester leaderboard."
+                    content: "<:crosss:1572295157200457819> Failed to load the tester leaderboard."
                 });
             }
 
@@ -35,7 +35,7 @@ module.exports = {
 
                 const embed = new EmbedBuilder()
                     .setColor(config.colors.primary)
-                    .setTitle("<:<:staff:1569676993983815830>:1567483653766778900> Tester Leaderboard")
+                    .setTitle(" Tester Leaderboard")
                     .setDescription("No tests have been completed yet.")
                     .setFooter({
                         text: "AsianTiers • Tester Leaderboard"
@@ -83,7 +83,7 @@ module.exports = {
 
             const embed = new EmbedBuilder()
                 .setColor(config.colors.primary)
-                .setTitle("<:<:staff:1569676993983815830>:1567483653766778900> Tester Leaderboard")
+                .setTitle(" Tester Leaderboard")
                 .setDescription(
                     `Top testers ranked by their total completed tests.\n\n${leaderboardText}`
                 )
@@ -113,7 +113,7 @@ module.exports = {
             console.error("Tester Leaderboard Error:", error);
 
             await interaction.editReply({
-                content: "<:crosss:1572295157200457819>s:1567480131713241108> Something went wrong while loading the leaderboard."
+                content: "<:crosss:1572295157200457819> Something went wrong while loading the leaderboard."
             }).catch(() => {});
         }
     }

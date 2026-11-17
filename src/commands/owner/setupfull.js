@@ -9,7 +9,7 @@ module.exports = {
 
     async execute(interaction) {
         if (interaction.user.id !== '1105165947590938866') {
-            return interaction.reply({ content: '<:crosss:1572295157200457819>s:1570104768628531290> Only the bot owner can use this command.', flags: MessageFlags.Ephemeral });
+            return interaction.reply({ content: '<:crosss:1572295157200457819> Only the bot owner can use this command.', flags: MessageFlags.Ephemeral });
         }
 
         const row = new ActionRowBuilder().addComponents(

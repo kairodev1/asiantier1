@@ -183,7 +183,7 @@ module.exports = {
 
             return interaction.editReply({
                 content:
-                    "<:crosss:1572295157200457819>s:1567480131713241108> Failed to create the testing ticket."
+                    "<:crosss:1572295157200457819> Failed to create the testing ticket."
             });
         }
 
@@ -221,7 +221,7 @@ module.exports = {
 
             return interaction.editReply({
                 content:
-                    "<:crosss:1572295157200457819>s:1567480131713241108> Failed to create the testing session."
+                    "<:crosss:1572295157200457819> Failed to create the testing session."
             });
         }
 
@@ -245,7 +245,7 @@ module.exports = {
 
             return interaction.editReply({
                 content:
-                    "<:crosss:1572295157200457819>s:1567480131713241108> Failed to remove the player from the queue."
+                    "<:crosss:1572295157200457819> Failed to remove the player from the queue."
             });
         }
 
@@ -553,7 +553,7 @@ module.exports = {
 
         await interaction.editReply({
             content:
-                `<:tick:1572295109154701352>:1567480091267825714> Ticket created: ${ticketChannel}`
+                `<:tick:1572295109154701352> Ticket created: ${ticketChannel}`
         });
     }
 };

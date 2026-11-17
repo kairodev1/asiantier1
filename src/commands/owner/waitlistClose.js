@@ -19,7 +19,7 @@ module.exports = {
         if (!await perms.isTester(interaction.member)) {
 
             return interaction.reply({
-                content: '<:crosss:1572295157200457819>s:1567480131713241108> Only testers can use this command.',
+                content: '<:crosss:1572295157200457819> Only testers can use this command.',
                 flags: 64
             });
         }
@@ -49,7 +49,7 @@ module.exports = {
 
             return interaction.reply({
                 content:
-                    '<:crosss:1572295157200457819>s:1567480131713241108> This channel is not a registered testing queue.',
+                    '<:crosss:1572295157200457819> This channel is not a registered testing queue.',
                 flags: 64
             });
         }
@@ -73,7 +73,7 @@ module.exports = {
                 console.error('QUEUE FETCH ERROR:', fetchError);
                 return interaction.editReply({
                     content:
-                        '<:crosss:1572295157200457819>s:1567480131713241108> Failed to fetch queue configuration.'
+                        '<:crosss:1572295157200457819> Failed to fetch queue configuration.'
                 });
             }
 
@@ -108,7 +108,7 @@ module.exports = {
 
                 return interaction.editReply({
                     content:
-                        '<:crosss:1572295157200457819>s:1567480131713241108> Failed to close the queue.'
+                        '<:crosss:1572295157200457819> Failed to close the queue.'
                 });
             }
 
@@ -178,14 +178,14 @@ module.exports = {
 
                 return interaction.editReply({
                     content:
-                        '<:crosss:1572295157200457819>s:1567480131713241108> Something went wrong while closing the queue.'
+                        '<:crosss:1572295157200457819> Something went wrong while closing the queue.'
                 }).catch(() => {});
 
             }
 
             return interaction.reply({
                 content:
-                    '<:crosss:1572295157200457819>s:1567480131713241108> Something went wrong while closing the queue.',
+                    '<:crosss:1572295157200457819> Something went wrong while closing the queue.',
                 flags: 64
             }).catch(() => {});
         }

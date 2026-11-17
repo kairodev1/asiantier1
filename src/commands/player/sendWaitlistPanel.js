@@ -19,7 +19,7 @@ module.exports = {
     async execute(interaction) {
 
         const embed = new EmbedBuilder()
-            .setTitle('<:<:staff:1569676993983815830>:1567483653766778900> AsianTiers — Testing Waitlist')
+            .setTitle(' AsianTiers — Testing Waitlist')
             .setColor(0x8B0000)
             .setDescription(
                 '**Welcome to the AsianTiers Testing System!**\n\n' +
@@ -164,7 +164,7 @@ module.exports = {
         });
 
         await interaction.reply({
-            content: '<:tick:1572295109154701352>:1567480091267825714> Waitlist panel sent.',
+            content: '<:tick:1572295109154701352> Waitlist panel sent.',
             ephemeral: true
         });
     }

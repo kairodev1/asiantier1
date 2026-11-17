@@ -28,7 +28,7 @@ module.exports = {
             console.error("Daily Tests Error:", error);
 
             return interaction.editReply({
-                content: "<:crosss:1572295157200457819>s:1567480131713241108> Failed to load today's testing statistics."
+                content: "<:crosss:1572295157200457819> Failed to load today's testing statistics."
             });
         }
 
@@ -97,7 +97,7 @@ module.exports = {
                     inline: true
                 },
                 {
-                    name: "<:<:staff:1569676993983815830>:1567483653766778900> Tester Activity",
+                    name: " Tester Activity",
                     value: testerText || "No tester data.",
                     inline: false
                 },

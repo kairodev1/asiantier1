@@ -18,7 +18,7 @@ module.exports = {
     async execute(interaction) {
         if (interaction.user.id !== config.ownerId) {
             return interaction.reply({
-                content: '<:crosss:1572295157200457819>s:1567480131713241108> Only the bot owner can use this command.',
+                content: '<:crosss:1572295157200457819> Only the bot owner can use this command.',
                 flags: MessageFlags.Ephemeral
             });
         }
@@ -31,7 +31,7 @@ module.exports = {
             !channel.topic?.includes('HT_USER:')
         ) {
             return interaction.reply({
-                content: '<:crosss:1572295157200457819>s:1567480131713241108> Use this command inside a High Test ticket.',
+                content: '<:crosss:1572295157200457819> Use this command inside a High Test ticket.',
                 flags: MessageFlags.Ephemeral
             });
         }
@@ -52,13 +52,13 @@ module.exports = {
             });
 
             return interaction.editReply({
-                content: `<:tick:1572295109154701352>:1567480091267825714> ${player} has been added to this ticket.`
+                content: `<:tick:1572295109154701352> ${player} has been added to this ticket.`
             });
         } catch (error) {
             console.error('HIGH TEST ADD ERROR:', error);
 
             return interaction.editReply({
-                content: '<:crosss:1572295157200457819>s:1567480131713241108> Failed to give the player access to this ticket. Check the bot permissions.'
+                content: '<:crosss:1572295157200457819> Failed to give the player access to this ticket. Check the bot permissions.'
             });
         }
     }

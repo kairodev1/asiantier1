@@ -17,7 +17,7 @@ module.exports = {
     async execute(interaction) {
         if (interaction.user.id !== config.ownerId) {
             return interaction.reply({
-                content: '<:crosss:1572295157200457819>s:1567480131713241108> Only the bot owner can use this command.',
+                content: '<:crosss:1572295157200457819> Only the bot owner can use this command.',
                 flags: MessageFlags.Ephemeral
             });
         }
@@ -40,7 +40,7 @@ module.exports = {
                 console.error('REMOVE HIGH TEST COOLDOWN ERROR:', error);
 
                 return interaction.editReply({
-                    content: '<:crosss:1572295157200457819>s:1567480131713241108> Failed to remove the High Test cooldown. Check the database.'
+                    content: '<:crosss:1572295157200457819> Failed to remove the High Test cooldown. Check the database.'
                 });
             }
 
@@ -51,13 +51,13 @@ module.exports = {
             }
 
             return interaction.editReply({
-                content: `<:tick:1572295109154701352>:1567480091267825714> Removed the High Test cooldown for ${player}. They can request another High Test without waiting for the old cooldown.`
+                content: `<:tick:1572295109154701352> Removed the High Test cooldown for ${player}. They can request another High Test without waiting for the old cooldown.`
             });
         } catch (error) {
             console.error('REMOVE HIGH TEST COOLDOWN ERROR:', error);
 
             return interaction.editReply({
-                content: '<:crosss:1572295157200457819>s:1567480131713241108> An unexpected error occurred while removing the cooldown.'
+                content: '<:crosss:1572295157200457819> An unexpected error occurred while removing the cooldown.'
             });
         }
     }

@@ -102,6 +102,7 @@ module.exports = {
             const { error: deleteError } = await supabase
                 .from('queue_members')
                 .delete()
+                .eq('guild_id', interaction.guildId)
                 .in('gamemode', [gamemode, dbGamemode]);
 
             if (deleteError) {

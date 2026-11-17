@@ -1705,6 +1705,9 @@ module.exports = {
                             'queue_members'
                         )
                         .insert({
+                            guild_id:
+                                interaction.guildId,
+
                             gamemode,
 
                             discord_id:
@@ -1758,6 +1761,10 @@ module.exports = {
                             'queue_members'
                         )
                         .select('*')
+                        .eq(
+                            'guild_id',
+                            interaction.guildId
+                        )
                         .eq(
                             'gamemode',
                             gamemode

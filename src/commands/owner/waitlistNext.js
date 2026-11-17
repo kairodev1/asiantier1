@@ -56,6 +56,7 @@ module.exports = {
         } = await supabase
             .from("queue_members")
             .select("*")
+            .eq("guild_id", interaction.guildId)
             .eq("gamemode", gamemode)
             .order("priority", {
                 ascending: false
@@ -241,6 +242,7 @@ module.exports = {
         } = await supabase
             .from("queue_members")
             .select("*")
+            .eq("guild_id", interaction.guildId)
             .eq("gamemode", gamemode)
             .order("priority", {
                 ascending: false

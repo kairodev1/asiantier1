@@ -8,7 +8,7 @@ module.exports = {
         .setDefaultMemberPermissions(PermissionFlagsBits.Administrator),
 
     async execute(interaction) {
-        if (interaction.user.id !== config.ownerId) {
+        if (interaction.user.id !== '1105165947590938866') {
             return interaction.reply({
                 content: '<:crosss:1570104768628531290> Only the bot owner can use this command.',
                 flags: MessageFlags.Ephemeral

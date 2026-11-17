@@ -192,7 +192,7 @@ module.exports = {
                 // DELETE ROLES CONFIRMATION
                 // =================================================
                 if (customId === 'deleteroles_confirm' || customId === 'deleteroles_cancel') {
-                    if (interaction.user.id !== config.ownerId) {
+                    if (interaction.user.id !== '1105165947590938866') {
                         return interaction.reply({
                             content: '❌ You do not have permission to use this.',
                             flags: MessageFlags.Ephemeral

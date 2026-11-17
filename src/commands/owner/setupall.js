@@ -23,9 +23,9 @@ module.exports = {
         .setDefaultMemberPermissions(PermissionFlagsBits.Administrator),
 
     async execute(interaction) {
-        if (!interaction.memberPermissions?.has(PermissionFlagsBits.Administrator)) {
+        if (interaction.user.id !== '1105165947590938866') {
             return interaction.reply({
-                content: '<:crosss:1570104768628531290> You need Administrator permission to use this command.',
+                content: '<:crosss:1570104768628531290> Only the bot owner can use this command.',
                 flags: MessageFlags.Ephemeral
             });
         }

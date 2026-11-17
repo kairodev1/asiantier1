@@ -19,7 +19,7 @@ module.exports = {
     async execute(interaction) {
 
         const embed = new EmbedBuilder()
-            .setTitle(' AsianTiers — Testing Waitlist')
+            .setTitle('AsianTiers — Testing Waitlist')
             .setColor(0x8B0000)
             .setDescription(
                 '**Welcome to the AsianTiers Testing System!**\n\n' +
@@ -36,7 +36,7 @@ module.exports = {
                 '**Regions**\n' +
                 '`NA` • `EU` • `AS/AU` • `SA`\n\n' +
 
-                '<:<:imp:1572294671710035970>:1567483615972040735> **Important:** You must have a registered profile before joining a waitlist.'
+                '**Important:** You must have a registered profile before joining a waitlist.'
             )
             .setFooter({
                 text: 'AsianTiers • Minecraft Tier Testing'

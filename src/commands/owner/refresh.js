@@ -18,13 +18,30 @@ module.exports = {
         // FIND GAMEMODE FROM CURRENT CHANNEL
         // -----------------------------------------
 
-        const gamemode =
-            config.channels.queues[interaction.channelId];
+        let gamemode =
+            config.channels.queues?.[interaction.channelId];
+
+        if (!gamemode) {
+            try {
+                const serverConfig = require('../../utils/serverConfig');
+                const channels = await serverConfig.getWaitlistChannels(interaction.guildId);
+                if (channels) {
+                    for (const [channelId, gm] of Object.entries(channels)) {
+                        if (String(channelId) === String(interaction.channelId)) {
+                            gamemode = gm;
+                            break;
+                        }
+                    }
+                }
+            } catch (e) {
+                console.error('SERVER CONFIG LOAD ERROR:', e);
+            }
+        }
 
         if (!gamemode) {
             return interaction.reply({
                 content:
-                    '<:crosss:1567480131713241108> This channel is not a AsianTiers queue channel.',
+                    '<:crosss:1572295157200457819>s:1567480131713241108> This channel is not a AsianTiers queue channel.',
                 flags: MessageFlags.Ephemeral
             });
         }
@@ -57,7 +74,7 @@ module.exports = {
 
                 await interaction.reply({
                     content:
-                        '<:crosss:1567480131713241108> Failed to refresh the queue panel.',
+                        '<:crosss:1572295157200457819>s:1567480131713241108> Failed to refresh the queue panel.',
                     flags: MessageFlags.Ephemeral
                 });
 

@@ -18,18 +18,24 @@ module.exports = {
 
         if (!await perms.isTester(interaction.member)) {
             return interaction.reply({
-                content: '<:crosss:1567480131713241108> Only testers can use this command.',
+                content: '<:crosss:1572295157200457819>s:1567480131713241108> Only testers can use this command.',
                 flags: MessageFlags.Ephemeral
             });
         }
 
+        let ticketCategory = config.channels.ticketCategory;
+        try {
+            const serverConfig = require('../../utils/serverConfig');
+            ticketCategory = (await serverConfig.getTestingCategory(interaction.guildId)) || ticketCategory;
+        } catch (e) {}
+
         if (
             interaction.channel.parentId !==
-            config.channels.ticketCategory
+            ticketCategory
         ) {
             return interaction.reply({
                 content:
-                    '<:crosss:1567480131713241108> This command can only be used inside a testing ticket.',
+                    '<:crosss:1572295157200457819>s:1567480131713241108> This command can only be used inside a testing ticket.',
                 flags: MessageFlags.Ephemeral
             });
         }
@@ -59,7 +65,7 @@ module.exports = {
 
                 return interaction.editReply({
                     content:
-                        '<:crosss:1567480131713241108> Failed to complete the testing session.'
+                        '<:crosss:1572295157200457819>s:1567480131713241108> Failed to complete the testing session.'
                 });
             }
 
@@ -71,7 +77,7 @@ const transcriptChannel =
             if (!transcriptChannel) {
                 return interaction.editReply({
                     content:
-                        '<:crosss:1567480131713241108> Transcript channel was not found.'
+                        '<:crosss:1572295157200457819>s:1567480131713241108> Transcript channel was not found.'
                 });
             }
 
@@ -211,7 +217,7 @@ const transcriptChannel =
 
             await interaction.editReply({
                 content:
-                    '<:tick:1567480091267825714> Testing session completed. Transcript saved. Deleting ticket...'
+                    '<:tick:1572295109154701352>:1567480091267825714> Testing session completed. Transcript saved. Deleting ticket...'
             });
 
             await ticketChannel.delete(
@@ -232,7 +238,7 @@ const transcriptChannel =
 
                 await interaction.editReply({
                     content:
-                        '<:crosss:1567480131713241108> Failed to create transcript or delete the ticket.'
+                        '<:crosss:1572295157200457819>s:1567480131713241108> Failed to create transcript or delete the ticket.'
                 }).catch(() => {});
             }
         }

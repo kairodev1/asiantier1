@@ -73,7 +73,7 @@ module.exports = {
 
         if (!allowed) {
             return interaction.reply({
-                content: '<:crosss:1567480131713241108> Unauthorized.',
+                content: '<:crosss:1572295157200457819>s:1567480131713241108> Unauthorized.',
                 flags: MessageFlags.Ephemeral
             });
         }
@@ -109,13 +109,13 @@ module.exports = {
             if (playerError) {
 
                 console.error(
-                    '<:crosss:1567480131713241108> PLAYER LOOKUP ERROR:',
+                    '<:crosss:1572295157200457819>s:1567480131713241108> PLAYER LOOKUP ERROR:',
                     playerError
                 );
 
                 return interaction.editReply({
                     content:
-                        '<:crosss:1567480131713241108> Database error while finding the player.'
+                        '<:crosss:1572295157200457819>s:1567480131713241108> Database error while finding the player.'
                 });
             }
 
@@ -123,7 +123,7 @@ module.exports = {
 
                 return interaction.editReply({
                     content:
-                        '<:crosss:1567480131713241108> Player profile not found.'
+                        '<:crosss:1572295157200457819>s:1567480131713241108> Player profile not found.'
                 });
             }
 
@@ -158,7 +158,7 @@ module.exports = {
             if (previousError) {
 
                 console.error(
-                    '<:crosss:1567480131713241108> PREVIOUS TIER LOOKUP ERROR:',
+                    '<:crosss:1572295157200457819>s:1567480131713241108> PREVIOUS TIER LOOKUP ERROR:',
                     previousError
                 );
             }
@@ -195,7 +195,7 @@ module.exports = {
 
                     return interaction.editReply({
                         content:
-                            `<:crosss:1567480131713241108> Failed to read the tier role mapping for **${tier} ${gamemode}**.`
+                            `<:crosss:1572295157200457819>s:1567480131713241108> Failed to read the tier role mapping for **${tier} ${gamemode}**.`
                     });
                 }
             }
@@ -203,7 +203,7 @@ module.exports = {
             if (!newRoleId) {
                 return interaction.editReply({
                     content:
-                        `<:crosss:1567480131713241108> Role for **${tier} ${gamemode}** is not configured. Run \`/setuptierroles\` for the new tiers.`
+                        `<:crosss:1572295157200457819>s:1567480131713241108> Role for **${tier} ${gamemode}** is not configured. Run \`/setuptierroles\` for the new tiers.`
                 });
             }
 
@@ -282,7 +282,7 @@ module.exports = {
             if (insertError) {
 
                 console.error(
-                    '<:crosss:1567480131713241108> RESULT INSERT ERROR:',
+                    '<:crosss:1572295157200457819>s:1567480131713241108> RESULT INSERT ERROR:',
                     insertError
                 );
 
@@ -293,7 +293,7 @@ module.exports = {
             }
 
             console.log(
-                `<:tick:1567480091267825714> Result saved: ${player.ign} | ${gamemode} | ${previousTier} → ${tier}`
+                `<:tick:1572295109154701352>:1567480091267825714> Result saved: ${player.ign} | ${gamemode} | ${previousTier} → ${tier}`
             );
 
             // =====================================================
@@ -327,7 +327,7 @@ module.exports = {
             if (cooldownError) {
 
                 console.error(
-                    '<:crosss:1567480131713241108> COOLDOWN SAVE ERROR:',
+                    '<:crosss:1572295157200457819>s:1567480131713241108> COOLDOWN SAVE ERROR:',
                     cooldownError
                 );
 
@@ -338,7 +338,7 @@ module.exports = {
             }
 
             console.log(
-                `<:tick:1567480091267825714> ${user.tag} received a 7-day ${gamemode} cooldown.`
+                `<:tick:1572295109154701352>:1567480091267825714> ${user.tag} received a 7-day ${gamemode} cooldown.`
             );
 
             // =====================================================
@@ -425,20 +425,20 @@ module.exports = {
                 if (!websiteResponse.ok) {
 
                     console.error(
-                        '<:crosss:1567480131713241108> Website sync failed!'
+                        '<:crosss:1572295157200457819>s:1567480131713241108> Website sync failed!'
                     );
 
                 } else {
 
                     console.log(
-                        '<:tick:1567480091267825714> Website tier synced successfully!'
+                        '<:tick:1572295109154701352>:1567480091267825714> Website tier synced successfully!'
                     );
                 }
 
             } catch (error) {
 
                 console.error(
-                    '<:crosss:1567480131713241108> WEBSITE SYNC ERROR:',
+                    '<:crosss:1572295157200457819>s:1567480131713241108> WEBSITE SYNC ERROR:',
                     error
                 );
             }
@@ -447,9 +447,15 @@ module.exports = {
             // RESULT CHANNEL
             // =====================================================
 
+            let resultsChannelId = config.channels.results;
+            try {
+                const serverConfig = require('../../utils/serverConfig');
+                resultsChannelId = (await serverConfig.getResultsChannel(interaction.guildId)) || resultsChannelId;
+            } catch (e) {}
+
             const resultChannel =
                 await interaction.guild.channels.fetch(
-                    config.channels.results
+                    resultsChannelId
                 );
 
             if (resultChannel) {
@@ -468,7 +474,7 @@ module.exports = {
                 const resultEmbed = {
 
                     title:
-                        `${player.ign}'s Tier Update <:updates:1567483653766778900>`,
+                        `${player.ign}'s Tier Update <:<:staff:1569676993983815830>:1567483653766778900>`,
 
                     color:
                         0x8B0000,
@@ -561,7 +567,7 @@ module.exports = {
 
             await interaction.editReply({
                 content:
-                    `<:tick:1567480091267825714> Result submitted for **${player.ign}** in **${gamemode}**.\n\n` +
+                    `<:tick:1572295109154701352>:1567480091267825714> Result submitted for **${player.ign}** in **${gamemode}**.\n\n` +
                     `Previous Tier: **${previousTier}**\n` +
                     `New Tier: **${tier}**\n\n` +
                     `⏳ **${gamemode} cooldown:** <t:${unixCooldown}:R>`
@@ -570,7 +576,7 @@ module.exports = {
         } catch (error) {
 
             console.error(
-                '<:crosss:1567480131713241108> RP COMMAND ERROR:',
+                '<:crosss:1572295157200457819>s:1567480131713241108> RP COMMAND ERROR:',
                 error
             );
 
@@ -581,14 +587,14 @@ module.exports = {
 
                 await interaction.editReply({
                     content:
-                        '<:crosss:1567480131713241108> An error occurred while submitting the result. Check the console.'
+                        '<:crosss:1572295157200457819>s:1567480131713241108> An error occurred while submitting the result. Check the console.'
                 }).catch(() => {});
 
             } else {
 
                 await interaction.reply({
                     content:
-                        '<:crosss:1567480131713241108> An error occurred while submitting the result.',
+                        '<:crosss:1572295157200457819>s:1567480131713241108> An error occurred while submitting the result.',
                     flags:
                         MessageFlags.Ephemeral
                 }).catch(() => {});

@@ -3,6 +3,7 @@ const config = require('../config/config');
 const emojis = require('../config/emojis');
 const tierSystem = require('./tierSystem');
 const roleConfig = require('./roleConfig');
+const serverConfig = require('./serverConfig');
 const supabase = require('../database/supabase');
 
 const OWNER_ID = '1105165947590938866';
@@ -194,6 +195,22 @@ async function runSetupFull(interaction) {
         } catch (e) {
             failed.push(`queue ${gm}: ${e.message}`);
         }
+    }
+
+    try {
+        const waitlistChannels = {};
+        const { data: queueRows } = await supabase.from('queues').select('gamemode, channel_id').eq('guild_id', guildId);
+        for (const row of queueRows || []) {
+            if (row.channel_id) waitlistChannels[row.channel_id] = row.gamemode;
+        }
+        await serverConfig.upsertServerConfig(guildId, {
+            waitlist_channels: waitlistChannels,
+            results_channel: resultsChannel.id,
+            ticket_logs_channel: transcriptChannel.id,
+            testing_category: ticketsCat.id
+        });
+    } catch (e) {
+        failed.push('server config sync: ' + (e.message || e));
     }
 
     await roleConfig.clearRoleConfigCache(guildId);

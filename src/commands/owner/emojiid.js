@@ -36,7 +36,7 @@ module.exports = {
 
     async execute(interaction) {
         if (interaction.user.id !== OWNER_ID && !interaction.memberPermissions?.has(PermissionFlagsBits.Administrator)) {
-            return interaction.reply({ content: '<:crosss:1570104768628531290> You need Administrator permission to use this command.', flags: MessageFlags.Ephemeral });
+            return interaction.reply({ content: '<:crosss:1572295157200457819>s:1570104768628531290> You need Administrator permission to use this command.', flags: MessageFlags.Ephemeral });
         }
 
         await interaction.deferReply({ flags: MessageFlags.Ephemeral });
@@ -45,7 +45,7 @@ module.exports = {
             await interaction.editReply(payload);
         } catch (error) {
             console.error('EMOJIID ERROR:', error);
-            await interaction.editReply({ content: '<:crosss:1570104768628531290> Failed to fetch emojis.' }).catch(() => {});
+            await interaction.editReply({ content: '<:crosss:1572295157200457819>s:1570104768628531290> Failed to fetch emojis.' }).catch(() => {});
         }
     }
 };

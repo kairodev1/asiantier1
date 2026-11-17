@@ -60,14 +60,14 @@ module.exports = {
 
                         await interaction.editReply({
                             content:
-                                '<:crosss:1567480131713241108> An error occurred while executing this command.'
+                                '<:crosss:1572295157200457819>s:1567480131713241108> An error occurred while executing this command.'
                         }).catch(() => {});
 
                     } else {
 
                         await interaction.reply({
                             content:
-                                '<:crosss:1567480131713241108> An error occurred while executing this command.',
+                                '<:crosss:1572295157200457819>s:1567480131713241108> An error occurred while executing this command.',
                             flags:
                                 MessageFlags.Ephemeral
                         }).catch(() => {});
@@ -295,7 +295,7 @@ module.exports = {
                         await setupFull.runSetupFull(interaction);
                     } catch (error) {
                         console.error('SETUPFULL ERROR:', error);
-                        await interaction.editReply({ content: '<:crosss:1570104768628531290> Setup failed. Check console.', components: [] }).catch(() => {});
+                        await interaction.editReply({ content: '<:crosss:1572295157200457819>s:1570104768628531290> Setup failed. Check console.', components: [] }).catch(() => {});
                     }
                     return;
                 }
@@ -331,7 +331,7 @@ module.exports = {
 
                         return await interaction.reply({
                             content:
-                                '<:crosss:1567480131713241108> Only the bot owner can reset the tester leaderboard.',
+                                '<:crosss:1572295157200457819>s:1567480131713241108> Only the bot owner can reset the tester leaderboard.',
                             flags:
                                 MessageFlags.Ephemeral
                         });
@@ -358,7 +358,7 @@ module.exports = {
 
                             return await interaction.reply({
                                 content:
-                                    '<:crosss:1567480131713241108> Failed to reset the tester leaderboard.',
+                                    '<:crosss:1572295157200457819>s:1567480131713241108> Failed to reset the tester leaderboard.',
                                 flags:
                                     MessageFlags.Ephemeral
                             });
@@ -366,7 +366,7 @@ module.exports = {
 
                         return await interaction.reply({
                             content:
-                                '<:tick:1567480091267825714> Tester leaderboard has been reset successfully.',
+                                '<:tick:1572295109154701352>:1567480091267825714> Tester leaderboard has been reset successfully.',
                             flags:
                                 MessageFlags.Ephemeral
                         });
@@ -380,7 +380,7 @@ module.exports = {
 
                         return await interaction.reply({
                             content:
-                                '<:crosss:1567480131713241108> Something went wrong while resetting the leaderboard.',
+                                '<:crosss:1572295157200457819>s:1567480131713241108> Something went wrong while resetting the leaderboard.',
                             flags:
                                 MessageFlags.Ephemeral
                         });
@@ -434,7 +434,7 @@ module.exports = {
 
                         return await interaction.reply({
                             content:
-                                '<:crosss:1567480131713241108> Could not check your High Test cooldown.',
+                                '<:crosss:1572295157200457819>s:1567480131713241108> Could not check your High Test cooldown.',
                             flags:
                                 MessageFlags.Ephemeral
                         });
@@ -488,7 +488,7 @@ module.exports = {
 
                         return await interaction.reply({
                             content:
-                                '<:crosss:1567480131713241108> Database error while checking your profile.',
+                                '<:crosss:1572295157200457819>s:1567480131713241108> Database error while checking your profile.',
                             flags:
                                 MessageFlags.Ephemeral
                         });
@@ -498,7 +498,7 @@ module.exports = {
 
                         return await interaction.reply({
                             content:
-                                '<:crosss:1567480131713241108> You are not registered.\n\nPlease register your AsianTiers profile first.',
+                                '<:crosss:1572295157200457819>s:1567480131713241108> You are not registered.\n\nPlease register your AsianTiers profile first.',
                             flags:
                                 MessageFlags.Ephemeral
                         });
@@ -518,7 +518,7 @@ module.exports = {
     if (allowlistError) {
         console.error('HIGH TEST ALLOWLIST CHECK ERROR:', JSON.stringify(allowlistError, null, 2));
         return await interaction.reply({
-            content: '<:crosss:1567480131713241108> Database error while checking High Test access.',
+            content: '<:crosss:1572295157200457819>s:1567480131713241108> Database error while checking High Test access.',
             flags: MessageFlags.Ephemeral
         });
     }
@@ -562,7 +562,7 @@ module.exports = {
 
         return await interaction.reply({
             content:
-                '<:crosss:1567480131713241108> Database error while checking your current tier.',
+                '<:crosss:1572295157200457819>s:1567480131713241108> Database error while checking your current tier.',
             flags:
                 MessageFlags.Ephemeral
         });
@@ -585,7 +585,7 @@ module.exports = {
 
         return await interaction.reply({
             content:
-                `<:crosss:1567480131713241108> You need **LT3 or higher** in **${highGamemode}** to apply for a High Test.\n\n` +
+                `<:crosss:1572295157200457819>s:1567480131713241108> You need **LT3 or higher** in **${highGamemode}** to apply for a High Test.\n\n` +
                 `Your current **${highGamemode}** tier is **${currentTier}**.`,
             flags:
                 MessageFlags.Ephemeral
@@ -593,7 +593,7 @@ module.exports = {
     }
 
     console.log(
-        `<:tick:1567480091267825714> High Test eligibility: ${interaction.user.tag} | ${highGamemode} | ${currentTier}`
+        `<:tick:1572295109154701352>:1567480091267825714> High Test eligibility: ${interaction.user.tag} | ${highGamemode} | ${currentTier}`
     );
 
                         // =============================================
@@ -705,7 +705,7 @@ module.exports = {
         );
 
         return await interaction.reply({
-            content: '<:crosss:1567480131713241108> Could not verify High Test staff permissions. Check bot logs.',
+            content: '<:crosss:1572295157200457819>s:1567480131713241108> Could not verify High Test staff permissions. Check bot logs.',
             flags: MessageFlags.Ephemeral
         });
     }
@@ -730,7 +730,7 @@ module.exports = {
 
     if (!isOwner && !isHighTestStaff) {
         return await interaction.reply({
-            content: '<:crosss:1567480131713241108> Only High Test staff can close or skip this ticket.',
+            content: '<:crosss:1572295157200457819>s:1567480131713241108> Only High Test staff can close or skip this ticket.',
             flags: MessageFlags.Ephemeral
         });
     }
@@ -757,7 +757,7 @@ module.exports = {
 
                         return await interaction.reply({
                             content:
-                                '<:crosss:1567480131713241108> Could not identify the ticket owner.',
+                                '<:crosss:1572295157200457819>s:1567480131713241108> Could not identify the ticket owner.',
                             flags:
                                 MessageFlags.Ephemeral
                         });
@@ -937,7 +937,7 @@ module.exports = {
                     const transcriptChannel =
                         await interaction.guild.channels.fetch(
                             config.channels.transcriptChannel ||
-                            '1567481439816253522'
+                            '1572306634200449085'
                         );
 
                     if (!transcriptChannel) {
@@ -948,7 +948,7 @@ module.exports = {
 
                         return await interaction.editReply({
                             content:
-                                '<:crosss:1567480131713241108> Transcript channel could not be found. Ticket was NOT closed.'
+                                '<:crosss:1572295157200457819>s:1567480131713241108> Transcript channel could not be found. Ticket was NOT closed.'
                         });
                     }
 
@@ -1080,7 +1080,7 @@ module.exports = {
                     await interaction.editReply({
                         content: isSkip
                             ? '⏭️ Transcript saved successfully. Closing ticket without a cooldown.'
-                            : '<:tick:1567480091267825714> Transcript saved successfully.\n<:close:1567495039242735716> 15-day High Test cooldown applied.\n🗑️ Closing ticket...'
+                            : '<:tick:1572295109154701352>:1567480091267825714> Transcript saved successfully.\n<:close:1572294578873049229> 15-day High Test cooldown applied.\n🗑️ Closing ticket...'
                     });
 
                     // =============================================
@@ -1251,7 +1251,7 @@ module.exports = {
 
                         return await interaction.reply({
                             content:
-                                '<:crosss:1567480131713241108> Invalid waitlist.',
+                                '<:crosss:1572295157200457819>s:1567480131713241108> Invalid waitlist.',
                             flags:
                                 MessageFlags.Ephemeral
                         });
@@ -1265,7 +1265,7 @@ module.exports = {
 
                         return await interaction.reply({
                             content:
-                                '<:crosss:1567480131713241108> You cannot join the testing waitlist.',
+                                '<:crosss:1572295157200457819>s:1567480131713241108> You cannot join the testing waitlist.',
                             flags:
                                 MessageFlags.Ephemeral
                         });
@@ -1279,7 +1279,7 @@ module.exports = {
 
                         return await interaction.reply({
                             content:
-                                '<:crosss:1567480131713241108> **Register your profile first.**\n\nClick **Register / Update Profile** before selecting a waitlist.',
+                                '<:crosss:1572295157200457819>s:1567480131713241108> **Register your profile first.**\n\nClick **Register / Update Profile** before selecting a waitlist.',
                             flags:
                                 MessageFlags.Ephemeral
                         });
@@ -1295,7 +1295,7 @@ module.exports = {
 
                         return await interaction.reply({
                             content:
-                                `<:crosss:1567480131713241108> Waitlist role for **${gamemode}** is not configured.`,
+                                `<:crosss:1572295157200457819>s:1567480131713241108> Waitlist role for **${gamemode}** is not configured.`,
                             flags:
                                 MessageFlags.Ephemeral
                         });
@@ -1310,7 +1310,7 @@ module.exports = {
 
                         return await interaction.reply({
                             content:
-                                '<:crosss:1567480131713241108> The waitlist role could not be found.',
+                                '<:crosss:1572295157200457819>s:1567480131713241108> The waitlist role could not be found.',
                             flags:
                                 MessageFlags.Ephemeral
                         });
@@ -1338,7 +1338,7 @@ module.exports = {
 
                             return await interaction.editReply({
                                 content:
-                                    `<:tick:1567480091267825714> You left the **${gamemode}** waitlist.`,
+                                    `<:tick:1572295109154701352>:1567480091267825714> You left the **${gamemode}** waitlist.`,
                                 flags:
                                     MessageFlags.Ephemeral
                             });
@@ -1352,7 +1352,7 @@ module.exports = {
 
                             return await interaction.editReply({
                                 content:
-                                    '<:crosss:1567480131713241108> Could not remove the waitlist role.',
+                                    '<:crosss:1572295157200457819>s:1567480131713241108> Could not remove the waitlist role.',
                                 flags:
                                     MessageFlags.Ephemeral
                             });
@@ -1368,7 +1368,7 @@ module.exports = {
 
                         return await interaction.editReply({
                             content:
-                                `<:tick:1567480091267825714> You joined the **${gamemode}** waitlist!`,
+                                `<:tick:1572295109154701352>:1567480091267825714> You joined the **${gamemode}** waitlist!`,
                             flags:
                                 MessageFlags.Ephemeral
                         });
@@ -1382,7 +1382,7 @@ module.exports = {
 
                         return await interaction.editReply({
                             content:
-                                '<:crosss:1567480131713241108> I could not give you the waitlist role. Please contact staff.',
+                                '<:crosss:1572295157200457819>s:1567480131713241108> I could not give you the waitlist role. Please contact staff.',
                             flags:
                                 MessageFlags.Ephemeral
                         });
@@ -1424,7 +1424,7 @@ module.exports = {
 
                     return await interaction.reply({
                         content:
-                            '<:crosss:1567480131713241108> You are blacklisted from joining AsianTiers testing queues.',
+                            '<:crosss:1572295157200457819>s:1567480131713241108> You are blacklisted from joining AsianTiers testing queues.',
                         flags:
                             MessageFlags.Ephemeral
                     });
@@ -1442,7 +1442,7 @@ module.exports = {
 
                     return await interaction.reply({
                         content:
-                            '<:crosss:1567480131713241108> **Register your profile first.**',
+                            '<:crosss:1572295157200457819>s:1567480131713241108> **Register your profile first.**',
                         flags:
                             MessageFlags.Ephemeral
                     });
@@ -1516,7 +1516,7 @@ module.exports = {
 
                         return await interaction.reply({
                             content:
-                                '<:crosss:1567480131713241108> Could not check your testing cooldown. Please contact staff.',
+                                '<:crosss:1572295157200457819>s:1567480131713241108> Could not check your testing cooldown. Please contact staff.',
                             flags:
                                 MessageFlags.Ephemeral
                         });
@@ -1591,7 +1591,7 @@ module.exports = {
 
                         return await interaction.reply({
                             content:
-                                '<:crosss:1567480131713241108> Could not check your queue status.',
+                                '<:crosss:1572295157200457819>s:1567480131713241108> Could not check your queue status.',
                             flags:
                                 MessageFlags.Ephemeral
                         });
@@ -1601,7 +1601,7 @@ module.exports = {
 
                         return await interaction.reply({
                             content:
-                                '<:crosss:1567480131713241108> You are already in a queue! Leave your current queue first.',
+                                '<:crosss:1572295157200457819>s:1567480131713241108> You are already in a queue! Leave your current queue first.',
                             flags:
                                 MessageFlags.Ephemeral
                         });
@@ -1637,7 +1637,7 @@ module.exports = {
 
                         return await interaction.reply({
                             content:
-                                '<:crosss:1567480131713241108> Could not check your testing session.',
+                                '<:crosss:1572295157200457819>s:1567480131713241108> Could not check your testing session.',
                             flags:
                                 MessageFlags.Ephemeral
                         });
@@ -1724,7 +1724,7 @@ module.exports = {
 
                         return await interaction.reply({
                             content:
-                                '<:crosss:1567480131713241108> You already have an active testing session.',
+                                '<:crosss:1572295157200457819>s:1567480131713241108> You already have an active testing session.',
                             flags:
                                 MessageFlags.Ephemeral
                         });
@@ -1772,7 +1772,7 @@ module.exports = {
 
                             return await interaction.reply({
                                 content:
-                                    '<:crosss:1567480131713241108> You are already in a queue! Leave your current queue first.',
+                                    '<:crosss:1572295157200457819>s:1567480131713241108> You are already in a queue! Leave your current queue first.',
                                 flags:
                                     MessageFlags.Ephemeral
                             });
@@ -1780,7 +1780,7 @@ module.exports = {
 
                         return await interaction.reply({
                             content:
-                                '<:crosss:1567480131713241108> Failed to join the queue. Please try again.',
+                                '<:crosss:1572295157200457819>s:1567480131713241108> Failed to join the queue. Please try again.',
                             flags:
                                 MessageFlags.Ephemeral
                         });
@@ -1858,7 +1858,7 @@ module.exports = {
 
                     await interaction.reply({
                         content:
-                            `<:tick:1567480091267825714> You joined the **${gamemode}** queue.` +
+                            `<:tick:1572295109154701352>:1567480091267825714> You joined the **${gamemode}** queue.` +
                             (
                                 position
                                     ? ` You are currently **#${position}**.`
@@ -1971,7 +1971,7 @@ module.exports = {
 
                         return await interaction.reply({
                             content:
-                                '<:crosss:1567480131713241108> Failed to check your queue status.',
+                                '<:crosss:1572295157200457819>s:1567480131713241108> Failed to check your queue status.',
                             flags:
                                 MessageFlags.Ephemeral
                         });
@@ -2002,7 +2002,7 @@ module.exports = {
 
                         return await interaction.reply({
                             content:
-                                '<:crosss:1567480131713241108> Failed to leave the queue.',
+                                '<:crosss:1572295157200457819>s:1567480131713241108> Failed to leave the queue.',
                             flags:
                                 MessageFlags.Ephemeral
                         });
@@ -2010,7 +2010,7 @@ module.exports = {
 
                     await interaction.reply({
                         content:
-                            '<:tick:1567480091267825714> You left the queue.',
+                            '<:tick:1572295109154701352>:1567480091267825714> You left the queue.',
                         flags:
                             MessageFlags.Ephemeral
                     });
@@ -2258,7 +2258,7 @@ module.exports = {
 
                         return await interaction.reply({
                             content:
-                                '<:crosss:1567480131713241108> Player profile not found.',
+                                '<:crosss:1572295157200457819>s:1567480131713241108> Player profile not found.',
                             flags:
                                 MessageFlags.Ephemeral
                         });
@@ -2272,7 +2272,7 @@ module.exports = {
                         interaction.guild.channels.cache.find(
                             channel =>
                                 channel.parentId ===
-                                    '1567481342386507777' &&
+                                    '1572306479640219688' &&
                                 channel.topic?.includes(
                                     `HT_USER:${interaction.user.id}`
                                 )
@@ -2284,7 +2284,7 @@ module.exports = {
 
                         return await interaction.reply({
                             content:
-                                `<:crosss:1567480131713241108> You already have an open High Test ticket: ${existingTicket}`,
+                                `<:crosss:1572295157200457819>s:1567480131713241108> You already have an open High Test ticket: ${existingTicket}`,
                             flags:
                                 MessageFlags.Ephemeral
                         });
@@ -2295,7 +2295,7 @@ module.exports = {
                     // =============================================
 
                     const categoryId =
-                        '1567481342386507777';
+                        '1572306479640219688';
 
                     const safeName =
                         player.ign
@@ -2317,7 +2317,7 @@ module.exports = {
                     if (staffRolesError) {
                         console.error('HIGH TEST STAFF ROLES ERROR:', staffRolesError);
                         return await interaction.reply({
-                            content: '<:crosss:1567480131713241108> Could not load High Test staff roles.',
+                            content: '<:crosss:1572295157200457819>s:1567480131713241108> Could not load High Test staff roles.',
                             flags: MessageFlags.Ephemeral
                         });
                     }
@@ -2435,7 +2435,7 @@ module.exports = {
 
                                 {
                                     name:
-                                        '<:updates:1567483653766778900> Current Tier',
+                                        '<:<:staff:1569676993983815830>:1567483653766778900> Current Tier',
                                     value:
                                         `\`${currentTier}\``,
                                     inline:
@@ -2514,7 +2514,7 @@ module.exports = {
 
                     return await interaction.reply({
                         content:
-                            `<:tick:1567480091267825714> Your **${config.gamemodeNames?.[highGamemode] || highGamemode} High Test** ticket has been created: ${ticketChannel}`,
+                            `<:tick:1572295109154701352>:1567480091267825714> Your **${config.gamemodeNames?.[highGamemode] || highGamemode} High Test** ticket has been created: ${ticketChannel}`,
                         flags:
                             MessageFlags.Ephemeral
                     });
@@ -2585,7 +2585,7 @@ module.exports = {
  
                         return await interaction.reply({
                             content:
-                                '<:crosss:1567480131713241108> Failed to save your profile.',
+                                '<:crosss:1572295157200457819>s:1567480131713241108> Failed to save your profile.',
                             flags:
                                 MessageFlags.Ephemeral
                         });
@@ -2648,12 +2648,12 @@ module.exports = {
                                 }
  
                                 console.error(
-                                    '<:crosss:1567480131713241108> Registration website sync failed on attempt',
+                                    '<:crosss:1572295157200457819>s:1567480131713241108> Registration website sync failed on attempt',
                                     attempt
                                 );
                             } catch (syncError) {
                                 console.error(
-                                    '<:crosss:1567480131713241108> REGISTRATION WEBSITE SYNC ERROR:',
+                                    '<:crosss:1572295157200457819>s:1567480131713241108> REGISTRATION WEBSITE SYNC ERROR:',
                                     syncError
                                 );
                             }
@@ -2667,12 +2667,12 @@ module.exports = {
  
                         if (!websiteSynced) {
                             console.error(
-                                '<:crosss:1567480131713241108> Registration website sync could not be completed; registration itself remains successful.'
+                                '<:crosss:1572295157200457819>s:1567480131713241108> Registration website sync could not be completed; registration itself remains successful.'
                             );
                         }
                     } catch (error) {
                         console.error(
-                            '<:crosss:1567480131713241108> REGISTRATION WEBSITE SYNC OUTER ERROR:',
+                            '<:crosss:1572295157200457819>s:1567480131713241108> REGISTRATION WEBSITE SYNC OUTER ERROR:',
                             error
                         );
                     }
@@ -2701,7 +2701,7 @@ module.exports = {
 
                     return await interaction.reply({
                         content:
-                            `<:tick:1567480091267825714> Profile updated for **${ign}**.\nYou can now join testing queues.`,
+                            `<:tick:1572295109154701352>:1567480091267825714> Profile updated for **${ign}**.\nYou can now join testing queues.`,
                         flags:
                             MessageFlags.Ephemeral
                     });
@@ -2724,7 +2724,7 @@ module.exports = {
 
                 await interaction.editReply({
                     content:
-                        '<:crosss:1567480131713241108> Something went wrong. Please try again.'
+                        '<:crosss:1572295157200457819>s:1567480131713241108> Something went wrong. Please try again.'
                 }).catch(() => {});
 
                 return;
@@ -2732,7 +2732,7 @@ module.exports = {
 
             await interaction.reply({
                 content:
-                    '<:crosss:1567480131713241108> Something went wrong. Please try again.',
+                    '<:crosss:1572295157200457819>s:1567480131713241108> Something went wrong. Please try again.',
                 flags:
                     MessageFlags.Ephemeral
             }).catch(() => {});

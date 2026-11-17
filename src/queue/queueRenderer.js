@@ -200,7 +200,7 @@ module.exports = {
                 emojis.ui?.queueopen || '🟢';
 
             const closeEmoji =
-                emojis.ui?.queueclose || '<:close:1567495039242735716>';
+                emojis.ui?.queueclose || '<:close:1572294578873049229>';
 
             // ==========================================
             // 5. BUILD QUEUE EMBED AND BUTTONS
@@ -221,7 +221,7 @@ module.exports = {
                     )
                     .addFields(
                         {
-                            name: '<:updates:1567483653766778900> Reason',
+                            name: '<:<:staff:1569676993983815830>:1567483653766778900> Reason',
                             value: 'Queue closed by command',
                             inline: false
                         },
@@ -295,7 +295,7 @@ module.exports = {
                     .setColor(0x5865F2)
                     .setDescription(
                         `${testerEmoji} **Tester(s) Available!**\n\n` +
-                        '🕐 The queue updates automatically.\n' +
+                        '🕐 The queue <:staff:1569676993983815830> automatically.\n' +
                         'Use **Join Queue** / **Leave Queue** to manage your position.'
                     )
                     .addFields(

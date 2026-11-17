@@ -36,8 +36,25 @@ module.exports = {
             flags: 64
         });
 
-        const gamemode =
-            config.channels.queues[interaction.channelId];
+        let gamemode =
+            config.channels.queues?.[interaction.channelId];
+
+        if (!gamemode) {
+            try {
+                const serverConfig = require('../../utils/serverConfig');
+                const channels = await serverConfig.getWaitlistChannels(interaction.guildId);
+                if (channels) {
+                    for (const [channelId, gm] of Object.entries(channels)) {
+                        if (String(channelId) === String(interaction.channelId)) {
+                            gamemode = gm;
+                            break;
+                        }
+                    }
+                }
+            } catch (e) {
+                console.error('SERVER CONFIG LOAD ERROR:', e);
+            }
+        }
 
         if (!gamemode) {
             return interaction.editReply({
@@ -166,7 +183,7 @@ module.exports = {
 
             return interaction.editReply({
                 content:
-                    "<:crosss:1567480131713241108> Failed to create the testing ticket."
+                    "<:crosss:1572295157200457819>s:1567480131713241108> Failed to create the testing ticket."
             });
         }
 
@@ -204,7 +221,7 @@ module.exports = {
 
             return interaction.editReply({
                 content:
-                    "<:crosss:1567480131713241108> Failed to create the testing session."
+                    "<:crosss:1572295157200457819>s:1567480131713241108> Failed to create the testing session."
             });
         }
 
@@ -228,7 +245,7 @@ module.exports = {
 
             return interaction.editReply({
                 content:
-                    "<:crosss:1567480131713241108> Failed to remove the player from the queue."
+                    "<:crosss:1572295157200457819>s:1567480131713241108> Failed to remove the player from the queue."
             });
         }
 
@@ -536,7 +553,7 @@ module.exports = {
 
         await interaction.editReply({
             content:
-                `<:tick:1567480091267825714> Ticket created: ${ticketChannel}`
+                `<:tick:1572295109154701352>:1567480091267825714> Ticket created: ${ticketChannel}`
         });
     }
 };

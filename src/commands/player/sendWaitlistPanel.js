@@ -19,7 +19,7 @@ module.exports = {
     async execute(interaction) {
 
         const embed = new EmbedBuilder()
-            .setTitle('<:updates:1567483653766778900> AsianTiers — Testing Waitlist')
+            .setTitle('<:<:staff:1569676993983815830>:1567483653766778900> AsianTiers — Testing Waitlist')
             .setColor(0x8B0000)
             .setDescription(
                 '**Welcome to the AsianTiers Testing System!**\n\n' +
@@ -36,7 +36,7 @@ module.exports = {
                 '**Regions**\n' +
                 '`NA` • `EU` • `AS/AU` • `SA`\n\n' +
 
-                '<:POLL:1567483615972040735> **Important:** You must have a registered profile before joining a waitlist.'
+                '<:<:imp:1572294671710035970>:1567483615972040735> **Important:** You must have a registered profile before joining a waitlist.'
             )
             .setFooter({
                 text: 'AsianTiers • Minecraft Tier Testing'
@@ -164,7 +164,7 @@ module.exports = {
         });
 
         await interaction.reply({
-            content: '<:tick:1567480091267825714> Waitlist panel sent.',
+            content: '<:tick:1572295109154701352>:1567480091267825714> Waitlist panel sent.',
             ephemeral: true
         });
     }

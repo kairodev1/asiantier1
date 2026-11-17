@@ -24,7 +24,7 @@ module.exports = {
 if (!interaction.memberPermissions?.has('Administrator')) {
     return interaction.reply({
         content:
-            '<:crosss:1567480131713241108> You need Administrator permission to use this command.',
+            '<:crosss:1572295157200457819>s:1567480131713241108> You need Administrator permission to use this command.',
         ephemeral: true
     });
 }
@@ -38,9 +38,9 @@ if (!interaction.memberPermissions?.has('Administrator')) {
             emojis.gamemodes?.DiaPot ||
             '<:diapot:1534871592730099743>';
 
-        // EXACT CUSTOM TROPHY EMOJI
-        const trophyEmoji =
-            '<:trophy~1:1567483693130584136>';
+        // EXACT CUSTOM <:trophy:1572294715343249538> EMOJI
+        const <:trophy:1572294715343249538>Emoji =
+            '<:<:trophy:1572294715343249538>~1:1567483693130584136>';
 
         // ==========================================
         // EMBED
@@ -62,7 +62,7 @@ if (!interaction.memberPermissions?.has('Administrator')) {
 
                 .addFields({
                     name:
-                        `${trophyEmoji} | HT Requirements`,
+                        `${<:trophy:1572294715343249538>Emoji} | HT Requirements`,
 
                     value:
                         '• You must be **LT3 or higher** to apply for a High Test.\n' +
@@ -157,7 +157,7 @@ if (!interaction.memberPermissions?.has('Administrator')) {
 
         return interaction.reply({
             content:
-                '<:tick:1567480091267825714> High Tests panel sent.',
+                '<:tick:1572295109154701352>:1567480091267825714> High Tests panel sent.',
             ephemeral: true
         });
     }

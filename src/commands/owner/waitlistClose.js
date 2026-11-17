@@ -19,20 +19,37 @@ module.exports = {
         if (!await perms.isTester(interaction.member)) {
 
             return interaction.reply({
-                content: '<:crosss:1567480131713241108> Only testers can use this command.',
+                content: '<:crosss:1572295157200457819>s:1567480131713241108> Only testers can use this command.',
                 flags: 64
             });
         }
 
         // Find gamemode from current channel
-        const gamemode =
+        let gamemode =
             config.channels.queues?.[interaction.channelId];
+
+        if (!gamemode) {
+            try {
+                const serverConfig = require('../../utils/serverConfig');
+                const channels = await serverConfig.getWaitlistChannels(interaction.guildId);
+                if (channels) {
+                    for (const [channelId, gm] of Object.entries(channels)) {
+                        if (String(channelId) === String(interaction.channelId)) {
+                            gamemode = gm;
+                            break;
+                        }
+                    }
+                }
+            } catch (e) {
+                console.error('SERVER CONFIG LOAD ERROR:', e);
+            }
+        }
 
         if (!gamemode) {
 
             return interaction.reply({
                 content:
-                    '<:crosss:1567480131713241108> This channel is not a registered testing queue.',
+                    '<:crosss:1572295157200457819>s:1567480131713241108> This channel is not a registered testing queue.',
                 flags: 64
             });
         }
@@ -56,7 +73,7 @@ module.exports = {
                 console.error('QUEUE FETCH ERROR:', fetchError);
                 return interaction.editReply({
                     content:
-                        '<:crosss:1567480131713241108> Failed to fetch queue configuration.'
+                        '<:crosss:1572295157200457819>s:1567480131713241108> Failed to fetch queue configuration.'
                 });
             }
 
@@ -91,7 +108,7 @@ module.exports = {
 
                 return interaction.editReply({
                     content:
-                        '<:crosss:1567480131713241108> Failed to close the queue.'
+                        '<:crosss:1572295157200457819>s:1567480131713241108> Failed to close the queue.'
                 });
             }
 
@@ -143,7 +160,7 @@ module.exports = {
 
             return interaction.editReply({
                 content:
-                    `<:close:1567495039242735716> **${gamemode}** queue has been closed.\n` +
+                    `<:close:1572294578873049229> **${gamemode}** queue has been closed.\n` +
                     `🗑️ All players were removed from the queue.`
             });
 
@@ -161,14 +178,14 @@ module.exports = {
 
                 return interaction.editReply({
                     content:
-                        '<:crosss:1567480131713241108> Something went wrong while closing the queue.'
+                        '<:crosss:1572295157200457819>s:1567480131713241108> Something went wrong while closing the queue.'
                 }).catch(() => {});
 
             }
 
             return interaction.reply({
                 content:
-                    '<:crosss:1567480131713241108> Something went wrong while closing the queue.',
+                    '<:crosss:1572295157200457819>s:1567480131713241108> Something went wrong while closing the queue.',
                 flags: 64
             }).catch(() => {});
         }

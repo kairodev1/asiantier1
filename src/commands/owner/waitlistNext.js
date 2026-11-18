@@ -148,7 +148,14 @@ module.exports = {
                     name: `test-${player.ign}`,
                     type: ChannelType.GuildText,
                     parent:
-                        config.channels.ticketCategory,
+                        (await (async () => {
+                            try {
+                                const serverConfig = require('../../utils/serverConfig');
+                                return (await serverConfig.getTestingCategory(interaction.guildId)) || config.channels.testingCategory || config.channels.ticketCategory;
+                            } catch (e) {
+                                return config.channels.testingCategory || config.channels.ticketCategory;
+                            }
+                        })()),
 
                     permissionOverwrites: [
                         {

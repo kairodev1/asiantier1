@@ -365,7 +365,7 @@ module.exports = {
                         `[${gamemode}] Existing queue panel updated.`
                     );
 
-                    return;
+                    return true;
 
                 } catch (error) {
 

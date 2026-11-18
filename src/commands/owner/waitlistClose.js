@@ -77,9 +77,13 @@ module.exports = {
                 });
             }
 
-            const queueRow = (allQueues || []).find(row =>
+            const guildQueues = (allQueues || []).filter(row =>
+                !row.guild_id || String(row.guild_id) === String(interaction.guildId)
+            );
+
+            const queueRow = guildQueues.find(row =>
                 String(row.channel_id) === String(interaction.channelId)
-            ) || (allQueues || []).find(row =>
+            ) || guildQueues.find(row =>
                 String(row.gamemode || '').trim().toLowerCase() ===
                 String(gamemode).trim().toLowerCase()
             );

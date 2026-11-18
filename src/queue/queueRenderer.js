@@ -57,7 +57,7 @@ function resolveQueueRow(allQueues, gamemode, channelId) {
 
 module.exports = {
 
-    async updateQueuePanel(client, gamemode) {
+    async updateQueuePanel(client, gamemode, channelId = null, guildId = null) {
 
         console.log('\n========== QUEUE PANEL UPDATE ==========');
         console.log('Gamemode:', gamemode);
@@ -85,15 +85,23 @@ module.exports = {
                 allQueues.map(queue => JSON.stringify(queue?.gamemode))
             );
 
-            const configuredChannelId =
-                Object.keys(config.channels.queues || {})
-                    .find(key => config.channels.queues[key] === gamemode);
+            const targetChannelId = channelId || Object.keys(config.channels.queues || {})
+                .find(key => config.channels.queues[key] === gamemode);
 
-            const queue = resolveQueueRow(
-                allQueues,
-                gamemode,
-                configuredChannelId
-            );
+            const guildRows = guildId
+                ? allQueues.filter(q => String(q.guild_id || '') === String(guildId))
+                : allQueues;
+            const rowsForResolve = guildRows.length ? guildRows : allQueues;
+
+            let queue = rowsForResolve.find(q => String(q.channel_id) === String(targetChannelId));
+            if (!queue) {
+                queue = resolveQueueRow(rowsForResolve, gamemode, targetChannelId);
+            }
+
+            if (queue && targetChannelId && String(queue.channel_id) !== String(targetChannelId)) {
+                await supabase.from('queues').update({ channel_id: targetChannelId }).eq('id', queue.id);
+                queue.channel_id = targetChannelId;
+            }
 
             if (!queue) {
                 console.error(
@@ -157,7 +165,7 @@ module.exports = {
 
             try {
                 channel = await client.channels.fetch(
-                    String(queue.channel_id)
+                    String(targetChannelId || queue.channel_id)
                 );
             } catch (error) {
                 console.error(

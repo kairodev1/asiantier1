@@ -156,7 +156,7 @@ try {
 
     return interaction.editReply({
         content:
-            '<:crosss:1572295157200457819> Queue was opened, but the queue panel could not be created or updated.'
+'<:crosss:1572295157200457819> Queue was opened, but the queue panel could not be created or updated: ' + (error?.message || error)
     });
 }
 

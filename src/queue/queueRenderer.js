@@ -421,6 +421,8 @@ module.exports = {
                 `[${gamemode}] Queue panel message ID saved successfully.`
             );
 
+            return true;
+
         } catch (error) {
 
             console.error(

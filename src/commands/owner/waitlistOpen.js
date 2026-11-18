@@ -143,12 +143,21 @@ module.exports = {
             // -----------------------------------------
 
 try {
-    await queueRenderer.updateQueuePanel(
+    const panelUpdated = await queueRenderer.updateQueuePanel(
         interaction.client,
         gamemode
     );
+
+    if (!panelUpdated) {
+        throw new Error('Queue panel was not created or updated.');
+    }
 } catch (error) {
     console.error('QUEUE PANEL UPDATE ERROR:', error);
+
+    return interaction.editReply({
+        content:
+            '<:crosss:1572295157200457819> Queue was opened, but the queue panel could not be created or updated.'
+    });
 }
 
             // -----------------------------------------
